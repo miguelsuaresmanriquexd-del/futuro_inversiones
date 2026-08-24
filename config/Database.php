@@ -8,14 +8,18 @@ class Database {
     private $username = 'root';
     private $password = '';
 
-    private function __construct() {
-        try {
-            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name};charset=utf8", $this->username, $this->password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        } catch(PDOException $e) {
-            die("Error de conexión a la base de datos: " . $e->getMessage());
-        }
+    private $port;
+
+    public function conectar() {
+    $env = parse_ini_file(__DIR__ . "/../.env");
+    $this->host=$env("DB_HOST");
+     $this->port=$env("DB_PORT");
+     $this->db_name=$env("DB_NAME");
+          return new PDO(
+            "mysql:host={$this->host};dbname={$this->db_name}",
+            $this->username,
+            $this->password
+          );
     }
 
     public static function getInstance() {
@@ -24,5 +28,7 @@ class Database {
         }
         return self::$instance->conn;
     }
+
+    
 }
 ?>

@@ -1,23 +1,11 @@
 <?php
-// Enrutador Front Controller Básica para MVC
-$controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) . 'Controller' : 'DashboardController';
-$actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
+require_once '../config/Database.php';
 
-$controllerFile = __DIR__ . '/../app/controllers/' . $controllerName . '.php';
+// Como es un Singleton, se llama a la conexión así (sin usar 'new'):
+$db = Database::getInstance();
 
-if (file_exists($controllerFile)) {
-    require_once $controllerFile;
-    if (class_exists($controllerName)) {
-        $controller = new $controllerName();
-        if (method_exists($controller, $actionName)) {
-            $controller->$actionName();
-        } else {
-            echo "Error 404: Acción '{$actionName}' no encontrada.";
-        }
-    } else {
-        echo "Error 404: Clase controlador '{$controllerName}' no encontrada.";
-    }
+if ($db) {
+    echo "<h2>¡futuro_inversiones listo y conectado a MySQL!</h2>";
 } else {
-    echo "Error 404: Archivo controlador '{$controllerName}.php' no existe.";
+    echo "<h2>Error al conectar a la base de datos.</h2>";
 }
-?>
