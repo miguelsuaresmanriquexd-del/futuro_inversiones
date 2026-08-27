@@ -1,29 +1,20 @@
 <?php
-// config/conexion.php
-
-class Database {
-    private $host = "localhost";
-    private $db_name = "futuro_inversion"; 
-    private $username = "root";             
-    private $password = "";                 
-    private $charset = "utf8mb4";
+class database {
+    private $host = 'localhost';
+    private $db_name = 'futuro_inversion';
+    private $username = 'root';
+    private $password = '';
     public $conn;
 
     public function getConnection() {
         $this->conn = null;
 
         try {
-            $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=" . $this->charset;
-            
-            $options = [
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES   => false,
-            ];
-
-            $this->conn = new PDO($dsn, $this->username, $this->password, $options);
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch(PDOException $exception) {
-            echo "Error de conexión a la base de datos: " . $exception->getMessage();
+            echo "Error de conexión: " . $exception->getMessage();
         }
 
         return $this->conn;
