@@ -1,50 +1,50 @@
 <?php
 
-require_once __DIR__ . '/../app/controller/UsuarioController.php';
+require_once __DIR__ . '/../app/controllers/UsuarioController.php';
 
 $controller = new UsuarioController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/ClienteController.php';
+require_once __DIR__ . '/../app/controllers/ClienteController.php';
 
 $controller = new ClienteController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/CompraController.php';
+require_once __DIR__ . '/../app/controllers/CompraController.php';
 $controller = new CompraController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/DescripcompraController.php';
+require_once __DIR__ . '/../app/controllers/DescripcompraController.php';
 
 $controller = new DescripcompraController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/DescripventaController.php';
+require_once __DIR__ . '/../app/controllers/DescripventaController.php';
 
 $controller = new DescripventaController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/PermisoController.php';
+require_once __DIR__ . '/../app/controllers/PermisoController.php';
 
 $controller = new PermisoController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/ProveedorController.php';
+require_once __DIR__ . '/../app/controllers/ProveedorController.php';
 
 $controller = new ProveedorController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/RolController.php';
+require_once __DIR__ . '/../app/controllers/RolController.php';
 
 $controller = new RolController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/RolPermisosController.php';
+require_once __DIR__ . '/../app/controllers/RolPermisosController.php';
 
 $controller = new RolPermisosController();
 $controller->index();
 
-require_once __DIR__ . '/../app/controller/VentaController.php';
+require_once __DIR__ . '/../app/controllers/VentaController.php';
 
 $controller = new VentaController();
 $controller->index();
