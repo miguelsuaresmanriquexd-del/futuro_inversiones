@@ -1,26 +1,23 @@
 <?php
 require_once __DIR__ . '/../models/Usuario.php';
 
-class UsuarioController {
-    public function index() {
-        $usuarioModel = new Usuario();
-        $usuarios = $usuarioModel->obtenerTodos();
-        require_once __DIR__ . '/../views/usuarios/index.php';
-    }
+class UsuarioController
+{
+    public function index()
+    {
+        try {
+            
+            $modelusuario = new Usuario(); 
 
-    public function crear() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nombre = $_POST['nombre'] ?? '';
-            $correo = $_POST['correo'] ?? '';
-            $password = $_POST['password'] ?? '123456';
-            $rol = $_POST['rol'] ?? 'inversionista';
+            
+            $usuario_unico = $modelusuario->getById(5);
 
-            $usuarioModel = new Usuario();
-            $usuarioModel->crear($nombre, $correo, $password, $rol);
-            header('Location: index.php?controller=usuario&action=index');
-            exit;
+            
+            require_once __DIR__ . '/../views/usuarios/index.php';
+
+        } catch (Exception $e) {
+            echo "Error en la visualización de usuarios: " . $e->getMessage();
+            exit();
         }
-        require_once __DIR__ . '/../views/usuarios/crear.php';
     }
 }
-?>

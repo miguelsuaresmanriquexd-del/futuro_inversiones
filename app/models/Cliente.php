@@ -1,11 +1,11 @@
 <?php
-require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../config/conexion.php';
 
-class Usuario {
+class Cliente {
     private $connection;
 
     public function __construct(){
-     
+        
         $database = new database();
         $this->connection = $database->conectar();
     }
@@ -13,18 +13,19 @@ class Usuario {
     public function getById($id) 
     {
         try {
-           
+          
             $sql = "SELECT 
-                        idDocumento,
-                        nombreUsu, 
-                        apellidoUsu,
-                        edadUsuario 
-                    FROM Usuario
-                    WHERE idDocumento = :id";
+                        idDocCliente,
+                        nombreClie, 
+                        telefonoClie,
+                        direccionClie,
+                        correoClie 
+                    FROM Cliente
+                    WHERE idDocCliente = :id";
 
             $consulta = $this->connection->prepare($sql); 
 
-            
+           
             $consulta->bindParam(':id', $id, PDO::PARAM_INT);
 
             $consulta->execute();
