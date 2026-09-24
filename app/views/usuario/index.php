@@ -6,6 +6,7 @@
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Edad</th>
+        <th>fechaNacim</th>
     </tr>
 
     <?php foreach ($usuarios as $usuario_unico): ?>
@@ -14,6 +15,7 @@
         <td><?= $usuario_unico['nombreUsu'] ?></td>
         <td><?= $usuario_unico['apellidoUsu'] ?></td>
         <td><?= $usuario_unico['edadUsuario'] ?></td>
+        <td><?= $usuario_unico['fechaNacim']?></td>
     </tr>
     <?php endforeach; ?>
 </table>

@@ -1,4 +1,5 @@
-<?php if(!empty($rol_unico)): ?>
+<?php /* Ocultar bloque completo de rol sin borrar el código
+if(!empty($rol_unico)): ?>
 <h1>Información del Rol</h1>
 <table border="1">
     <tr>
@@ -14,4 +15,5 @@
 </table>
 <?php else: ?>
     <p style="color:red;">No se encontró el rol especificado</p>
-<?php endif; ?>
+<?php endif; 
+*/ ?>

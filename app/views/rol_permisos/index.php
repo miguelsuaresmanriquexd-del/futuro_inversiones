@@ -1,4 +1,5 @@
-<?php if(!empty($permisos_del_rol)): ?>
+<?php /* Ocultar bloque completo de rol_permisos sin borrar el código
+if(!empty($permisos_del_rol)): ?>
 <h1>Permisos Asignados al Rol</h1>
 <table border="1">
     <tr>
@@ -18,4 +19,6 @@
 </table>
 <?php else: ?>
     <p style="color:red;">No se encontraron permisos asignados para este rol</p>
-<?php endif; ?>
+<?php endif; 
+*/ ?>
+

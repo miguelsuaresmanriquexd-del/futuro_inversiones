@@ -7,7 +7,7 @@ class DescripventaController {
             $modelDescripventa = new Descripventa();
             $productos_de_la_venta = $modelDescripventa->getPorVenta(1);
 
-            require_once __DIR__ . '/../views/descrip_ventas/index.php';
+            require_once __DIR__ . '/../views/Descripventa/index.php';
         } catch (Exception $e) {
             echo "Error en la visualización del detalle de venta: " . $e->getMessage();
             exit();

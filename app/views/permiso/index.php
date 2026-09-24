@@ -1,4 +1,5 @@
-<?php if(!empty($permiso_unico)): ?>
+<?php /* Ocultar bloque completo de permiso sin borrar el código
+if(!empty($permiso_unico)): ?>
 <h1>Información del Permiso</h1>
 <table border="1">
     <tr>
@@ -14,4 +15,6 @@
 </table>
 <?php else: ?>
     <p style="color:red;">No se encontró el permiso especificado</p>
-<?php endif; ?>
+<?php endif; 
+*/ ?>
+

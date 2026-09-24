@@ -7,7 +7,7 @@ class VentaController {
             $modelVenta = new Venta();
             $venta_unica = $modelVenta->getById(1);
 
-            require_once __DIR__ . '/../views/ventas/index.php';
+            require_once __DIR__ . '/../views/venta/index.php';
         } catch (Exception $e) {
             echo "Error en la visualización de ventas: " . $e->getMessage();
             exit();

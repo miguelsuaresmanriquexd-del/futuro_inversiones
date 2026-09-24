@@ -17,5 +17,5 @@
     </tr>
 </table>
 <?php else: ?>
-    <p style="color:red;">No se encontró el proveedor especificado</p>
+    <p style="color:red;"></p>
 <?php endif; ?>

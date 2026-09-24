@@ -1,4 +1,5 @@
-<?php if(!empty($productos_de_la_compra)): ?>
+<?php
+if(!empty($productos_de_la_compra)):?>
 <h1>Detalle de Artículos Comprados</h1>
 <table border="1">
     <tr>
@@ -22,4 +23,5 @@
 </table>
 <?php else: ?>
     <p style="color:red;">No se encontraron productos para esta compra</p>
-<?php endif; ?>
+<?php endif; 
+?>

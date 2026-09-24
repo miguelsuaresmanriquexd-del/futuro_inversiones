@@ -9,11 +9,11 @@ class Usuario {
         $this->connection = $database->conectar();
     }
 
-    // Tu método getById intacto con la estructura real de tu base de datos 'inversiones'
+   
     public function getById($id) 
     {
         try {
-            $sql = "SELECT idDocumento, nombreUsu, apellidoUsu, edadUsuario 
+            $sql = "SELECT idDocumento, nombreUsu, apellidoUsu, edadUsuario, fechaNacim
                     FROM Usuario 
                     WHERE idDocumento = :id";
             $consulta = $this->connection->prepare($sql); 
@@ -26,11 +26,11 @@ class Usuario {
         }
     }
 
-    // Método para listar todos usando tus columnas reales
+  
     public function getAll() 
     {
         try {
-            $sql = "SELECT idDocumento, nombreUsu, apellidoUsu, edadUsuario 
+            $sql = "SELECT idDocumento, nombreUsu, apellidoUsu, edadUsuario, fechaNacim
                     FROM Usuario";
             $consulta = $this->connection->prepare($sql); 
             $consulta->execute();

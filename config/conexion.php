@@ -50,4 +50,4 @@ class database {
         return $this->conn;
     }
 }
- ?> al final para evitar espacios en blanco accidentales en las respuestas HTTP
+

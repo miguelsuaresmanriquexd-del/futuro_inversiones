@@ -7,7 +7,7 @@ class PermisoController {
             $modelPermiso = new Permiso();
             $permiso_unico = $modelPermiso->getById(1);
 
-            require_once __DIR__ . '/../views/permisos/index.php';
+            require_once __DIR__ . '/../views/permiso/index.php';
         } catch (Exception $e) {
             echo "Error en la visualización de permisos: " . $e->getMessage();
             exit();

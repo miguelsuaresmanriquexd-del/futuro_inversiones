@@ -1,4 +1,5 @@
-<?php if(!empty($productos_de_la_venta)): ?>
+<?php /* Ocultar bloque completo de descripventa sin borrar el código
+if(!empty($productos_de_la_venta)): ?>
 <h1>Detalle de Artículos Vendidos</h1>
 <table border="1">
     <tr>
@@ -22,4 +23,6 @@
 </table>
 <?php else: ?>
     <p style="color:red;">No se encontraron productos para esta venta</p>
-<?php endif; ?>
+<?php endif; 
+*/ ?>
+
