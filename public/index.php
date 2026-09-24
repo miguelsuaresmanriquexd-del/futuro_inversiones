@@ -111,3 +111,14 @@ if ($method === 'GET' && $uri === "/Ciudad") {
 }
 
 ?>
+
+<a href="/Producto">Producto</a>
+
+<?php
+if ($method === 'GET' && $uri === "/Producto") {
+
+    $controller = new ProductoController();
+    $controller->crear();
+}
+
+?>
