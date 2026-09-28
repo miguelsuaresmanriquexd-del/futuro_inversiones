@@ -54,6 +54,11 @@ require_once __DIR__ . '/../app/controllers/CiudadController.php';
 $controller = new CiudadController();
 //$controller->index();
 
+require_once __DIR__ . '/../app/controllers/ProductoController.php';
+$controller = new ProductoController();
+//$controller->index();
+
+
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI']
 ?>
@@ -65,6 +70,7 @@ if ($method === 'GET' && $uri === "/Cliente") {
 
     $controller = new ClienteController();
     $controller->index();
+    $controller->crear();
 }
 
 ?>
@@ -75,6 +81,7 @@ if ($method === 'GET' && $uri === "/Cliente") {
 if ($method === 'GET' && $uri === "/Usuario") {
 
     $controller = new UsuarioController();
+    $controller->crear();
     $controller->index();
 }
 
@@ -119,6 +126,19 @@ if ($method === 'GET' && $uri === "/Producto") {
 
     $controller = new ProductoController();
     $controller->crear();
+    $controller->index();
+}
+
+?>
+
+<a href="/proveedor">proveedor</a>
+
+<?php
+if ($method === 'GET' && $uri === "/proveedor") {
+
+    $controller = new ProveedorController();
+    $controller->crear();
+    $controller->index();
 }
 
 ?>

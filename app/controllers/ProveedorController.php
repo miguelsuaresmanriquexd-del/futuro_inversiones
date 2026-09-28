@@ -13,4 +13,16 @@ class ProveedorController {
             exit();
         }
     }
+
+     public function crear() {
+        try {
+            $modelProveedor = new Proveedor();
+            $proveedor_unico = $modelProveedor->getById(1);
+
+            require_once __DIR__ . '/../views/proveedor/crear.php';
+        } catch (Exception $e) {
+            echo "Error en la visualización de proveedores: " . $e->getMessage();
+            exit();
+        }
+    }
 }
