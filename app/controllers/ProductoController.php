@@ -2,25 +2,18 @@
 require_once __DIR__ . '/../models/Producto.php';
 
 class ProductoController {
+    
     public function crear() {
+        require_once __DIR__ . '/../views/producto/crear.php';
+    } 
+    
+     public function index() {
         try {
-            
-            $modelProducto = new Producto();
-            
-            $producto_unico = $modelProducto->getById(1);
 
-            require_once __DIR__ . '/../views/producto/crear.php';
-        } catch (Exception $e) {
-            echo "Error en la visualización de productos: " . $e->getMessage();
-            exit();
-        }
-    }
-    public function index() {
-        try {
-            
             $modelProducto = new Producto();
+
             
-            $producto_unico = $modelProducto->getById(1);
+            $productos_lista = $modelProducto->getAll();
 
             require_once __DIR__ . '/../views/producto/index.php';
         } catch (Exception $e) {
@@ -28,4 +21,21 @@ class ProductoController {
             exit();
         }
     }
-}
+
+    public function Guardar(){
+        $nombreProd=$_POST['nombreProd'];
+        $precioProduc=$_POST['precioProduc'];
+        $stock=$_POST['stock'];
+        $idProducto=$_POST['idProducto'];
+
+        $producto= new Producto();
+        $resultado= $producto->guardar($nombreProd, $precioProduc, $stock, $idProducto);
+
+        if ($resultado){
+            echo "producto guardado correctamente";
+            $this->index();
+        }else{
+            echo "el producto no se pudo guardar";
+        }
+    }
+} 

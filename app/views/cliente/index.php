@@ -8,7 +8,6 @@
         <th>Dirección</th>
         <th>Correo</th>
     </tr>
-    
     <?php foreach ($clientes as $cliente_unico): ?>
     <tr>
         <td><?= $cliente_unico['nDocCliente'] ?></td>

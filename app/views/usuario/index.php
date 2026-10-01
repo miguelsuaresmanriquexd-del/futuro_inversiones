@@ -2,7 +2,7 @@
 <h1>Listado de Usuarios</h1>
 <table border="1">
     <tr>
-        <th>Documento</th>
+        <th>idDocumento</th>
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Edad</th>

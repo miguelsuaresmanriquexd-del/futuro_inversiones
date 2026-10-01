@@ -21,4 +21,37 @@ class Producto {
             exit();
         }
     }
+
+    public function guardar($nombreProd, $precioProduc, $stock, $idProducto){
+        try {
+            $sql="INSERT INTO producto (nombreProd, precioProduc, stock, idProducto)
+            VALUES (:nombreProd, :precioProduc, :stock, :idProducto)
+            ";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":nombreProd", $nombreProd);
+            $consulta->bindparam(":precioProduc", $precioProduc);
+            $consulta->bindparam(":stock", $stock);
+            $consulta->bindparam(":idProducto", $idProducto);
+
+            return $consulta->execute();
+            
+        } catch (PDOException $e) {
+            echo "Error al guardar el producto" . $nombreProd . "ERROR SQL:" . $e->getMessage();
+            return false;
+        }
+    }
+
+    
+    public function getAll() {
+        try {
+            $sql = "SELECT idProducto, nombreProd, precioProduc, stock FROM producto";
+            $consulta = $this->connection->prepare($sql);
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error al obtener todos los productos: " . $e->getMessage();
+            return [];
+        }
+    }
 }

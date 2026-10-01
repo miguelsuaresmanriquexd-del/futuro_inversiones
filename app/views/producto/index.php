@@ -1,4 +1,4 @@
-<?php if(!empty($producto_unico)): ?>
+<?php if(!empty($productos_lista)): ?>
 <h1>Información del Producto / Activo</h1>
 <table border="1">
     <tr>
@@ -7,12 +7,14 @@
         <th>Precio</th>
         <th>Stock Disponible</th>
     </tr>
+    <?php foreach ($productos_lista as $prod): ?>
     <tr>
-        <td><?= $producto_unico['idProducto'] ?></td>
-        <td><?= $producto_unico['nombreProd'] ?></td>
-        <td>$<?= number_format($producto_unico['precioProduc'], 2) ?></td>
-        <td><?= $producto_unico['stock'] ?></td>
+        <td><?= $prod['idProducto'] ?></td>
+        <td><?= $prod['nombreProd'] ?></td>
+        <td>$<?= number_format($prod['precioProduc'], 2) ?></td>
+        <td><?= $prod['stock'] ?></td>
     </tr>
+    <?php endforeach; ?>
 </table>
 <?php else: ?>
     <p style="color:red;">No se encontró la información del producto</p>

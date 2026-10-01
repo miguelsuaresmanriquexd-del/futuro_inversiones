@@ -9,7 +9,6 @@ class Usuario {
         $this->connection = $database->conectar();
     }
 
-   
     public function getById($id) 
     {
         try {
@@ -25,19 +24,39 @@ class Usuario {
             exit();
         }
     }
-
-  
     public function getAll() 
     {
         try {
-            $sql = "SELECT idDocumento, nombreUsu, apellidoUsu, edadUsuario, fechaNacim
-                    FROM Usuario";
+            $sql = "SELECT idDocumento, nombreUsu, apellidoUsu, edadUsuario, fechaNacim FROM Usuario";
+            
             $consulta = $this->connection->prepare($sql); 
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo "Error al obtener todos los usuarios: " . $e->getMessage();
             exit();
+        }
+    }
+
+
+    public function Guardar($nombreUsu, $apellidoUsu, $edadUsuario, $fechaNacim, $idDocumento){
+        try {
+            $sql="INSERT INTO usuario (nombreUsu, apellidoUsu, edadUsuario, fechaNacim, idDocumento)
+            VALUES (:nombreUsu, :apellidoUsu, :edadUsuario, :fechaNacim, :idDocumento)
+            ";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindparam(":idDocumento", $idDocumento);
+            $consulta->bindparam(":nombreUsu", $nombreUsu);
+            $consulta->bindparam(":apellidoUsu", $apellidoUsu);
+            $consulta->bindparam(":edadUsuario", $edadUsuario);
+            $consulta->bindparam(":fechaNacim", $fechaNacim);
+
+            return $consulta->execute();
+            
+        } catch (PDOException $e) {
+            echo "Error al guardar el usuario " . $nombreUsu . " ERROR SQL:" . $e->getMessage();
+            return false;
         }
     }
 }
